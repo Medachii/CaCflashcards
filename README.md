@@ -1,5 +1,5 @@
 # CaCflashcards
-An application of flashcards
+An application of flashcards developped by Noé-Laurent Laurent, Léa Poiron, Aurélien Troncy and Maxime Wirth
 
 ## Launch application
 Export your JAVAFX_HOME variable
