@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="643.0" prefWidth="1164.0" style="-fx-background-color: #f8ebf5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.application.FillBlankController">
+  <children>
+    <MenuBar style="-fx-background-color: #f9dfff;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" style="-fx-background-color: #e9c9f1;" text="Mode">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#toCreate" text="Création" />
+            <MenuItem mnemonicParsing="false" onAction="#toLearn" text="Apprentissage" />
+            <MenuItem mnemonicParsing="false" onAction="#toQCM" text="QCM" />
+            <MenuItem mnemonicParsing="false" onAction="#toStat" text="Statistiques" />
+            <MenuItem mnemonicParsing="false" onAction="#exitApp" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu fx:id="importcool" mnemonicParsing="false" style="-fx-background-color: #e9c9f1;" text="Import" />
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="531.0" prefWidth="824.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Pane layoutX="201.0" layoutY="129.0" prefHeight="351.0" prefWidth="764.0" style="-fx-background-color: #e8e5e7; -fx-background-radius: 15; -fx-border-color: white; -fx-border-radius: 15;">
+               <children>
+                  <Label fx:id="answered" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="14.0" prefHeight="18.0" prefWidth="667.0" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="83.0" prefWidth="667.0" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
+                  <Pane fx:id="mediaContainer" layoutX="26.0" layoutY="129.0" prefHeight="149.0" prefWidth="712.0">
+                     <children>
+                        <Pane fx:id="mediaContainer" layoutX="215.0" layoutY="-19.0" prefHeight="200.0" prefWidth="283.0" />
+                     </children></Pane>
+                  <Label fx:id="answer" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="321.0" prefHeight="16.0" prefWidth="700.0" text="" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </Pane>
+            <Button layoutX="1075.0" layoutY="263.0" mnemonicParsing="false" onAction="#QCMNext" style="-fx-background-color: #d8d8d8; -fx-background-radius: 5; -fx-border-color: #e9c9f1; -fx-border-radius: 5;" text="Suivant" />
+            <Button layoutX="29.0" layoutY="263.0" mnemonicParsing="false" onAction="#QCMPrevious" style="-fx-background-color: #d8d8d8; -fx-background-radius: 5; -fx-border-color: #e9c9f1; -fx-border-radius: 5;" text="Précédent" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="518.0" layoutY="90.0" mnemonicParsing="false" onAction="#resetQCM" style="-fx-background-color: #d8d8d8; -fx-background-radius: 5; -fx-border-color: #e9c9f1; -fx-border-radius: 5;" text="Nouvelle session" />
+            <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="14.0" prefHeight="25.0" prefWidth="732.0" text="Titre" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="description" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="39.0" prefHeight="41.0" prefWidth="1122.0" text="Description" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="reponse" layoutX="216.0" layoutY="505.0" prefHeight="41.0" prefWidth="430.0" promptText="Entrer la réponse ici" />
+            <Button fx:id="valider" layoutX="666.0" layoutY="505.0" mnemonicParsing="false" onAction="#checkAnswer" prefHeight="41.0" prefWidth="84.0" style="-fx-background-color: #e8e5e7; -fx-background-radius: 5; -fx-border-color: white; -fx-border-radius: 5;" text="Valider" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
